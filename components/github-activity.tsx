@@ -1,9 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, GitBranch, GitCommit, GitPullRequest } from "lucide-react"
+import { Github, GitBranch, GitCommit, GitPullRequest, ExternalLink } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function GitHubActivity() {
   return (
@@ -41,15 +42,17 @@ export default function GitHubActivity() {
                     </div>
                   </div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Link
-                      href="https://github.com/ashutosh-sx"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-md transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      View Profile
-                    </Link>
+                    <Button asChild className="bg-sky-500 hover:bg-sky-600 text-white">
+                      <Link
+                        href="https://github.com/ashutosh-sx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <span>View Profile</span>
+                        <ExternalLink className="h-4 w-4" />
+                      </Link>
+                    </Button>
                   </motion.div>
                 </div>
 
@@ -76,7 +79,7 @@ export default function GitHubActivity() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Repositories</p>
-                      <p className="text-xl font-bold text-white">4</p>
+                      <p className="text-xl font-bold text-white">5</p>
                     </div>
                   </motion.div>
 

@@ -6,36 +6,47 @@ import { ExternalLink, Github } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const projects = [
   {
     id: 1,
+    title: "Varta Setu",
+    description:
+      "A powerful communication app offering real-time messaging, audio/video calls, and seamless media sharing. Implemented features like contact management, message reactions, and dark mode for enhanced user experience. Integrated Google Authentication for secure and easy login.",
+    image: "/varta.jpg",
+    link: "https://vartasetu-web.vercel.app/",
+    github: "https://github.com/ashutosh-sx/vartasetu-chatapp",
+    tags: ["Next.js", "TypeScript", "Socket.io", "Prisma", "MongoDB", "Tailwind CSS", "Google Auth"],
+  },
+  {
+    id: 2,
+    title: "Chitran",
+    description:
+      "A real-time collaborative whiteboard application where users can sketch, write, and brainstorm ideas together. Features include real-time cursor tracking, multiple drawing tools, shape creation, and the ability to save and share boards. Built with a focus on performance and seamless collaboration.",
+    image: "/chitran.jpg",
+    link: "https://chitran-draw.vercel.app/",
+    github: "https://github.com/ashutosh-sx/chitran",
+    tags: ["Next.js", "TypeScript", "Canvas API", "Socket.io", "Tailwind CSS", "Zustand"],
+  },
+  {
+    id: 3,
     title: "Travel Story Website",
     description:
       "Built a travel story website for users to record and share experiences with dates and images. Developed a secure backend for data management and user authentication. Created a seamless React frontend for an interactive user experience.",
-    image: "/placeholder.svg?height=600&width=800",
-    link: "#",
+    image: "/travel.jpg",
+    link: null,
     github: "https://github.com/ashutosh-sx/tour_tracker",
     tags: ["MERN Stack", "MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
   },
   {
-    id: 2,
-    title: "Library Management System",
-    description:
-      "Developed a Library Management System to streamline book management and borrowing. Implemented efficient data handling and user authentication for secure operations. Won second prize in the college's PBL competition for innovation and practical application.",
-    image: "/placeholder.svg?height=600&width=800",
-    link: "#",
-    github: "#",
-    tags: ["Next.js", "React", "PostgreSQL", "Tailwind CSS"],
-  },
-  {
-    id: 3,
-    title: "Neetxcel.com",
+    id: 4,
+    title: "Neetxcel",
     description:
       "Led the complete development of neetxcel.com for NEET aspirants. Implemented secure authentication with NextAuth for students, teachers, and admins. Designed and optimized PostgreSQL database schemas for large datasets.",
-    image: "/placeholder.svg?height=600&width=800",
-    link: "#",
-    github: "#",
+    image: "/neetxcel.jpg",
+    link: "https://neetxcel.com",
+    github: null,
     tags: ["Next.js", "NextAuth", "PostgreSQL", "Tailwind CSS"],
   },
 ]
@@ -82,44 +93,60 @@ function ProjectCard({ project, index }) {
             <p className="text-gray-300 mb-6">{project.description}</p>
 
             <div className="flex gap-3">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-2 border-gray-700 hover:border-sky-500 hover:text-sky-500"
-                  asChild
-                >
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4" />
-                    Code
-                  </a>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-2 border-gray-700 hover:border-sky-500 hover:text-sky-500"
-                  asChild
-                >
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
-              </motion.div>
+              {project.github && (
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-2 border-gray-700 hover:border-sky-500 hover:text-sky-500"
+                    asChild
+                  >
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4" />
+                      Code
+                    </a>
+                  </Button>
+                </motion.div>
+              )}
+
+              {project.link && (
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-2 border-gray-700 hover:border-sky-500 hover:text-sky-500"
+                    asChild
+                  >
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                </motion.div>
+              )}
             </div>
           </div>
 
-          <div className="order-1 md:order-2 h-[200px] md:h-auto relative overflow-hidden">
-            <motion.img
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              className="w-full h-full object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/60"></div>
+          <div className="order-1 md:order-2 relative overflow-hidden h-[250px] md:h-auto">
+            <div className="w-full h-full relative">
+              {project.image ? (
+                <div className="relative w-full h-full min-h-[300px]">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              ) : (
+                <div className="w-full h-full min-h-[300px] bg-gray-700 flex items-center justify-center">
+                  <span className="text-gray-400">No image available</span>
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/60"></div>
+            </div>
           </div>
         </div>
       </Card>

@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Linkedin, Github, AlertCircle, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,25 +16,59 @@ export default function Contact() {
     subject: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null
+    message: string | null
+  }>({
+    type: null,
+    message: null,
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // In a real implementation, you would send the form data to a server
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-    // Show success message (in a real app)
-    alert("Message sent successfully!")
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: null })
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        })
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        throw new Error(data.message || "Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error.message || "Failed to send message. Please try again later.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -104,7 +139,7 @@ export default function Contact() {
               <h4 className="text-lg font-medium text-white mb-4">Connect With Me</h4>
               <div className="flex gap-3">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ashutosh-saxena-6b102925b"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-sky-500/20 transition-colors"
@@ -112,7 +147,7 @@ export default function Contact() {
                   <Linkedin className="h-5 w-5 text-sky-500" />
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/ashutosh-sx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-sky-500/20 transition-colors"
@@ -130,6 +165,26 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
+
+            {submitStatus.type && (
+              <Alert
+                className={`mb-6 ${
+                  submitStatus.type === "success"
+                    ? "bg-green-500/20 border-green-500/50"
+                    : "bg-red-500/20 border-red-500/50"
+                }`}
+              >
+                {submitStatus.type === "success" ? (
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                ) : (
+                  <AlertCircle className="h-4 w-4 text-red-500" />
+                )}
+                <AlertTitle className={submitStatus.type === "success" ? "text-green-500" : "text-red-500"}>
+                  {submitStatus.type === "success" ? "Success" : "Error"}
+                </AlertTitle>
+                <AlertDescription className="text-gray-300">{submitStatus.message}</AlertDescription>
+              </Alert>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -180,9 +235,18 @@ export default function Contact() {
                 />
               </div>
 
-              <Button type="submit" className="w-full gap-2 bg-sky-500 hover:bg-sky-600">
-                <Send className="h-4 w-4" />
-                Send Message
+              <Button type="submit" className="w-full gap-2 bg-sky-500 hover:bg-sky-600" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </motion.div>

@@ -64,11 +64,11 @@ export default function LeetCodeActivity() {
                     <div className="bg-gray-900/50 p-4 rounded-lg">
                       <div className="flex justify-between items-center mb-2">
                         <h4 className="text-white font-medium">Contest Rating</h4>
-                        <span className="text-orange-400 font-bold">1,560</span>
+                        <span className="text-orange-400 font-bold">1,650</span>
                       </div>
                       <div className="flex justify-between items-center text-sm text-gray-400">
-                        <span>Global Ranking: 200,512 / 869,602</span>
-                        <span>Top 29.59%</span>
+                        <span>Global Ranking</span>
+                        <span>Top 10%</span>
                       </div>
                     </div>
 
@@ -79,7 +79,7 @@ export default function LeetCodeActivity() {
                           <h4 className="text-white font-medium">Problems Solved</h4>
                         </div>
                         <div className="text-white font-bold">
-                          333 <span className="text-gray-400 font-normal text-sm">/ 3535</span>
+                          334 <span className="text-gray-400 font-normal text-sm">/ 3535</span>
                         </div>
                       </div>
 

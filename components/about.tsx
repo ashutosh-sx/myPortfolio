@@ -50,6 +50,15 @@ export default function About() {
               <p className="text-gray-400">BMS Institute of Technology and Management (2022-2026)</p>
               <p className="text-sky-500 mt-1">CGPA - 8.9</p>
             </div>
+
+            <div className="bg-gray-900/50 p-4 rounded-lg">
+              <h4 className="font-medium text-white">Schooling</h4>
+              <p className="text-gray-400">Lucknow Public Colleges (ICSE Board)</p>
+              <div className="flex flex-col sm:flex-row sm:justify-between mt-1">
+                <p className="text-sky-500">Class 12th - 95.75%</p>
+                <p className="text-sky-500">Class 10th - 94.6%</p>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div

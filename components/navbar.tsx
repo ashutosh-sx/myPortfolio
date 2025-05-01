@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Mountain, Menu, X } from "lucide-react"
+import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import Logo from "./logo"
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -48,6 +49,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleDownloadResume = () => {
+    // Create a link to download the resume
+    const link = document.createElement("a")
+    link.href = "/resume/ashutosh-saxena-resume.pdf"
+    link.download = "Ashutosh-Saxena-Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -58,12 +69,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Link href="#home" className="flex items-center gap-2 text-white">
-            <Mountain className="h-6 w-6 text-sky-500" />
-            <span className="font-bold text-lg">Ashutosh Saxena</span>
-          </Link>
-        </motion.div>
+        <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -89,7 +95,13 @@ export default function Navbar() {
             </motion.div>
           ))}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="bg-sky-500 hover:bg-sky-600 text-white">Resume</Button>
+            <Button
+              className="bg-sky-500 hover:bg-sky-600 text-white flex items-center gap-2"
+              onClick={handleDownloadResume}
+            >
+              <Download className="h-4 w-4" />
+              Resume
+            </Button>
           </motion.div>
         </nav>
 
@@ -113,10 +125,7 @@ export default function Navbar() {
             >
               <div className="flex flex-col h-full p-6">
                 <div className="flex justify-between items-center mb-10">
-                  <Link href="#home" className="flex items-center gap-2 text-white">
-                    <Mountain className="h-6 w-6 text-sky-500" />
-                    <span className="font-bold text-lg">Ashutosh Saxena</span>
-                  </Link>
+                  <Logo />
                   <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                     <Button variant="ghost" size="icon" className="text-white" onClick={() => setMobileMenuOpen(false)}>
                       <X className="h-6 w-6" />
@@ -149,7 +158,16 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: navLinks.length * 0.1 }}
                   >
-                    <Button className="bg-sky-500 hover:bg-sky-600 text-white w-full mt-4">Resume</Button>
+                    <Button
+                      className="bg-sky-500 hover:bg-sky-600 text-white w-full mt-4 flex items-center justify-center gap-2"
+                      onClick={() => {
+                        handleDownloadResume()
+                        setMobileMenuOpen(false)
+                      }}
+                    >
+                      <Download className="h-4 w-4" />
+                      Resume
+                    </Button>
                   </motion.div>
                 </nav>
               </div>
