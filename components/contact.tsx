@@ -129,7 +129,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Location</p>
-                    <p className="text-white">India</p>
+                    <p className="text-white">Bengaluru , India</p>
                   </div>
                 </CardContent>
               </Card>
