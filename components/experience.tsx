@@ -15,7 +15,7 @@ const experiences = [
     description: [
       "Led the complete development of neetxcel.com for NEET aspirants using Next.js, NextAuth, and PostgreSQL.",
       "Implemented secure authentication with NextAuth for students, teachers, and admins.",
-      "Directed the creation of dynamic, responsive user interfaces.",
+      "Built responsive UIs, ensuring seamless performance for 250+ concurrent users.",
       "Designed and optimized PostgreSQL database schemas for large datasets.",
     ],
   },

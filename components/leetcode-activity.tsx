@@ -68,7 +68,7 @@ export default function LeetCodeActivity() {
                       </div>
                       <div className="flex justify-between items-center text-sm text-gray-400">
                         <span>Global Ranking</span>
-                        <span>Top 10%</span>
+                        <span>Top 20%</span>
                       </div>
                     </div>
 
@@ -79,7 +79,7 @@ export default function LeetCodeActivity() {
                           <h4 className="text-white font-medium">Problems Solved</h4>
                         </div>
                         <div className="text-white font-bold">
-                          334 <span className="text-gray-400 font-normal text-sm">/ 3535</span>
+                          400 <span className="text-gray-400 font-normal text-sm">/ 3611</span>
                         </div>
                       </div>
 
@@ -87,23 +87,23 @@ export default function LeetCodeActivity() {
                         <div>
                           <div className="flex justify-between text-sm mb-1">
                             <span className="text-green-400">Easy</span>
-                            <span className="text-gray-400">111/873</span>
+                            <span className="text-gray-400">126/885</span>
                           </div>
-                          <Progress value={12.7} className="h-2" indicatorClassName="bg-green-500" />
+                          <Progress value={14.2} className="h-2" indicatorClassName="bg-green-500" />
                         </div>
                         <div>
                           <div className="flex justify-between text-sm mb-1">
                             <span className="text-yellow-400">Medium</span>
-                            <span className="text-gray-400">181/1835</span>
+                            <span className="text-gray-400">203/1878</span>
                           </div>
-                          <Progress value={9.9} className="h-2" indicatorClassName="bg-yellow-500" />
+                          <Progress value={10.8} className="h-2" indicatorClassName="bg-yellow-500" />
                         </div>
                         <div>
                           <div className="flex justify-between text-sm mb-1">
                             <span className="text-red-400">Hard</span>
-                            <span className="text-gray-400">41/827</span>
+                            <span className="text-gray-400">45/848</span>
                           </div>
-                          <Progress value={5} className="h-2" indicatorClassName="bg-red-500" />
+                          <Progress value={5.3} className="h-2" indicatorClassName="bg-red-500" />
                         </div>
                       </div>
                     </div>
@@ -148,15 +148,15 @@ export default function LeetCodeActivity() {
                       <div className="space-y-3">
                         <div className="flex justify-between items-center">
                           <span className="text-gray-300">Java</span>
-                          <span className="text-gray-400 text-sm">315 problems</span>
+                          <span className="text-gray-400 text-sm">382 problems</span>
                         </div>
-                        <Progress value={94.6} className="h-2" indicatorClassName="bg-blue-500" />
+                        <Progress value={95.5} className="h-2" indicatorClassName="bg-blue-500" />
 
                         <div className="flex justify-between items-center">
                           <span className="text-gray-300">JavaScript</span>
                           <span className="text-gray-400 text-sm">18 problems</span>
                         </div>
-                        <Progress value={5.4} className="h-2" indicatorClassName="bg-yellow-500" />
+                        <Progress value={4.5} className="h-2" indicatorClassName="bg-yellow-500" />
                       </div>
                     </div>
                   </div>

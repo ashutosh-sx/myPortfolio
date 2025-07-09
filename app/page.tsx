@@ -4,6 +4,7 @@ import About from "@/components/about"
 import Experience from "@/components/experience"
 import Projects from "@/components/projects"
 import Skills from "@/components/skills"
+import Certificates from "@/components/certificates"
 import GitHubActivity from "@/components/github-activity"
 import LeetCodeActivity from "@/components/leetcode-activity"
 import Contact from "@/components/contact"
@@ -18,6 +19,7 @@ export default function Home() {
       <Experience />
       <Projects />
       <Skills />
+      <Certificates /> 
       <GitHubActivity />
       <LeetCodeActivity />
       <Contact />

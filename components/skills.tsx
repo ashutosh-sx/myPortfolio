@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 const skillCategories = [
   {
     name: "Languages",
-    skills: ["JavaScript", "TypeScript", "Java", "C"],
+    skills: ["JavaScript", "TypeScript", "Java", "C", "Python", "C++"],
   },
   {
     name: "Frontend",
@@ -192,7 +192,16 @@ function CodeAnimation() {
   )
 }
 
-function AnimatedCodeLine({ children, delay, color, indent = 0 }) {
+import { ReactNode } from "react";
+
+type AnimatedCodeLineProps = {
+  children: ReactNode;
+  delay: number;
+  color: string;
+  indent?: number;
+};
+
+function AnimatedCodeLine({ children, delay, color, indent = 0 }: AnimatedCodeLineProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
