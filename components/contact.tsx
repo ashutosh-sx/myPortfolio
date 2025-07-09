@@ -25,12 +25,12 @@ export default function Contact() {
     message: null,
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus({ type: null, message: null })
@@ -64,7 +64,10 @@ export default function Contact() {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error.message || "Failed to send message. Please try again later.",
+        message:
+          error && typeof error === "object" && "message" in error && typeof (error as any).message === "string"
+            ? (error as { message: string }).message
+            : "Failed to send message. Please try again later.",
       })
     } finally {
       setIsSubmitting(false)
