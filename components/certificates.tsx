@@ -9,6 +9,19 @@ import { Button } from "@/components/ui/button"
 // Full list of certificates
 const certificates = [
 	{
+		id: 0,
+		title: "AI/ML Engineering Intern Certification",
+		issuer: "micro1",
+		date: "February 13th, 2026",
+		credentialId: "micro1-ai-ml",
+		description:
+			"Successfully passed micro1's AI Interview and officially certified as an AI/ML Engineering Intern.",
+		skills: ["AI/ML", "Generative AI", "Machine Learning"],
+		verificationUrl: "https://drive.google.com/file/d/1CufvoYjjeAuTnyfZEbQUCOKUBJmjG8-q/view",
+		certificateType: "drive",
+		status: "Active",
+	},
+	{
 		id: 1,
 		title: "Data Analytics Job Simulation",
 		issuer: "Deloitte (via Forage)",

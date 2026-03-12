@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Linkedin, Code } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import TypewriterComponent from "typewriter-effect"
 import { useEffect, useState } from "react"
 
@@ -49,8 +50,8 @@ function optimizeCode(input) {
 
 class SoftwareArchitect {
   constructor() {
-    this.skills = ['JavaScript', 'React', 'Next.js', 'Node'];
-    this.experience = ['Interferon', 'Deloai'];
+    this.skills = ['JavaScript', 'React', 'Next.js', 'Node', 'AI/ML'];
+    this.experience = ['EXEEVO', 'Interferon', 'Deloai'];
     this.projects = ['Travel Story', 'Library Management'];
   }
   
@@ -70,10 +71,11 @@ class SoftwareArchitect {
       <ClientOnlyParticles />
 
       <div className="container mx-auto px-4 z-10 relative">
-        <div className="max-w-3xl">
-          <motion.div custom={0} variants={fadeIn} initial="hidden" animate="visible">
-            <p className="text-sky-500 font-medium mb-2">Hello, I'm</p>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl flex flex-col justify-center">
+            <motion.div custom={0} variants={fadeIn} initial="hidden" animate="visible">
+              <p className="text-sky-500 font-medium mb-2">Hello, I'm</p>
+            </motion.div>
 
           <motion.h1
             custom={1}
@@ -94,7 +96,7 @@ class SoftwareArchitect {
           >
             <TypewriterComponent
               options={{
-                strings: ["Software Architect", "Full Stack Developer", "Problem Solver"],
+                strings: ["Software Architect", "Full Stack Developer", "Problem Solver", "AI/ML Enthusiast"],
                 autoStart: true,
                 loop: true,
               }}
@@ -112,7 +114,7 @@ class SoftwareArchitect {
               I design and build efficient, scalable software solutions. Specializing in web development, data
               structures, and algorithms to transform complex problems into clean, maintainable code.
             </p>
-            <p className="mt-2 text-sky-400/80">3rd-year ISE Student | Passionate about tech and innovation ⭐✨</p>
+            <p className="mt-2 text-sky-400/80">4th-year ISE Student | Passionate about tech and innovation ⭐✨</p>
           </motion.div>
 
           <motion.div
@@ -154,6 +156,25 @@ class SoftwareArchitect {
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </motion.a>
+            </div>
+          </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="hidden lg:flex justify-center items-center"
+          >
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-sky-500/20 shadow-[0_0_50px_rgba(14,165,233,0.15)] group hover:border-sky-500/50 transition-all duration-500">
+              <div className="absolute inset-0 bg-sky-500/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <Image
+                src="/Ashutosh.jpeg"
+                alt="Ashutosh Saxena"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </motion.div>
         </div>

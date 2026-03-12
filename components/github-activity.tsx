@@ -38,7 +38,7 @@ export default function GitHubActivity() {
                     <Github className="h-8 w-8 text-sky-500" />
                     <div>
                       <h3 className="text-xl font-bold text-white">ashutosh-sx</h3>
-                      <p className="text-gray-400">3rd-year ISE Student | Passionate about tech and innovation ⭐✨</p>
+                      <p className="text-gray-400">4th-year ISE Student | Passionate about tech and innovation ⭐✨</p>
                     </div>
                   </div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

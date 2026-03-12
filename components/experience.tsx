@@ -8,10 +8,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const experiences = [
   {
+    id: "exeevo",
+    company: "EXEEVO",
+    position: "AI/ML Engineering Intern",
+    period: "Jan 2026 - Present",
+    description: [
+      "Built an AI-powered Configuration Assistant to automate Exeevo and Dynamics 365 feature setup.",
+      "Implemented Azure AD (PKCE) authentication with role-based access and system reliability improvements.",
+      "Developed LLM-based natural language configuration using semantic embeddings and similarity search.",
+    ],
+  },
+  {
     id: "interferon",
     company: "Interferon Technologies Private Limited",
     position: "Tech Lead - Full Stack Developer Intern",
-    period: "December 2024 - May 2025",
+    period: "Dec 2024 - Dec 2025",
     description: [
       "Led the complete development of neetxcel.com for NEET aspirants using Next.js, NextAuth, and PostgreSQL.",
       "Implemented secure authentication with NextAuth for students, teachers, and admins.",
@@ -33,7 +44,7 @@ const experiences = [
 ]
 
 export default function Experience() {
-  const [activeTab, setActiveTab] = useState("interferon")
+  const [activeTab, setActiveTab] = useState("exeevo")
 
   return (
     <section id="experience" className="relative min-h-screen w-full py-20 bg-gray-900">
@@ -50,8 +61,8 @@ export default function Experience() {
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue="interferon" value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid grid-cols-2 mb-8 bg-gray-800/50 p-1 rounded-lg">
+          <Tabs defaultValue="exeevo" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid grid-cols-3 mb-8 bg-gray-800/50 p-1 rounded-lg">
               {experiences.map((exp) => (
                 <TabsTrigger
                   key={exp.id}

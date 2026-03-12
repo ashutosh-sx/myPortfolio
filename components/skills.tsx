@@ -14,11 +14,15 @@ const skillCategories = [
   },
   {
     name: "Backend",
-    skills: ["Node.js", "Express.js", "PostgreSQL", "MongoDB"],
+    skills: ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "SQL"],
+  },
+  {
+    name: "AI & ML",
+    skills: ["LLM", "Generative AI", "Machine Learning", "NumPy", "Python"],
   },
   {
     name: "Tools",
-    skills: ["Git", "GitHub", "Postman"],
+    skills: ["Git", "Docker", "Postman", "Google Cloud", "Linux"],
   },
 ]
 
@@ -137,7 +141,10 @@ function CodeAnimation() {
           this.role = {"'Software Architect'"};
         </AnimatedCodeLine>
         <AnimatedCodeLine delay={0.9} color="text-green-300" indent={2}>
-          this.languages = {`['JavaScript', 'TypeScript', 'Java', 'C']`};
+          this.languages = {`['JavaScript', 'TypeScript', 'Python', 'Java']`};
+        </AnimatedCodeLine>
+        <AnimatedCodeLine delay={1.0} color="text-green-300" indent={2}>
+          this.specialization = {`['Web Dev', 'AI/ML', 'DSA']`};
         </AnimatedCodeLine>
         <AnimatedCodeLine delay={1.1} color="text-gray-300" indent={1}>
           {"}"}
@@ -182,7 +189,7 @@ function CodeAnimation() {
           const ashutosh = new Developer();
         </AnimatedCodeLine>
         <AnimatedCodeLine delay={3.7} color="text-yellow-300">
-          console.log(ashutosh.solveProblems({"'complex web application'"}));
+          console.log(ashutosh.solveProblems({"'AI-powered integration'"}));
         </AnimatedCodeLine>
         <AnimatedCodeLine delay={3.9} color="text-green-400">
           // Output: "Efficient, scalable solution deployed successfully"

@@ -32,12 +32,13 @@ export default function About() {
             </div>
 
             <p className="mb-4 text-gray-300">
-              I'm a software architect with expertise in web development, data structures, and algorithms (DSA). Skilled
-              in designing efficient solutions and transforming complex problems into clean, maintainable code.
+              I design and build efficient, scalable software solutions. Specializing in web development, data structures, and algorithms to transform complex problems into clean, maintainable code.
             </p>
             <p className="mb-6 text-gray-300">
-              Currently working as a Tech Lead at Interferon Technologies, where I led the complete development of
-              neetxcel.com for NEET aspirants using Next.js, NextAuth, and PostgreSQL.
+              4th-year ISE Student | Passionate about tech and innovation ⭐✨
+            </p>
+            <p className="mb-6 text-gray-300">
+              Currently working as an AI/ML Engineering Intern at EXEEVO, building an AI-powered Configuration Assistant using LLMs and semantic embeddings. Previously led the development of neetxcel.com at Interferon Technologies.
             </p>
 
             <div className="flex items-center gap-3 mb-4">
@@ -106,8 +107,7 @@ export default function About() {
               <div className="mt-8 pt-6 border-t border-gray-700">
                 <h4 className="font-medium text-white mb-3">Professional Summary</h4>
                 <p className="text-gray-300">
-                  A software architect committed to continuous learning and staying ahead of industry trends to drive
-                  innovation. Passionate about creating efficient, scalable solutions that solve real-world problems.
+                  A software architect and AI enthusiast committed to continuous learning and staying ahead of industry trends to drive innovation. Passionate about creating efficient, scalable solutions that solve real-world problems and exploring Generative AI and Machine Learning.
                 </p>
               </div>
             </div>
