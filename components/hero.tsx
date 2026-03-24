@@ -164,9 +164,9 @@ class SoftwareArchitect {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden lg:flex justify-center items-center"
+            className="flex justify-center items-center order-first lg:order-last mt-12 lg:mt-0 mb-4 lg:mb-0"
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-sky-500/20 shadow-[0_0_50px_rgba(14,165,233,0.15)] group hover:border-sky-500/50 transition-all duration-500">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-sky-500/20 shadow-[0_0_50px_rgba(14,165,233,0.15)] group hover:border-sky-500/50 transition-all duration-500">
               <div className="absolute inset-0 bg-sky-500/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
               <Image
                 src="/Ashutosh.jpeg"
